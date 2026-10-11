@@ -16,7 +16,7 @@ Open `http://localhost:8000`. Opening `index.html` directly also works; serving 
 
 ## Publish as an independent repository
 
-Create an empty public GitHub repository named `CoSMO-project-page` under `Yangming911`. Leave README, license, and .gitignore unchecked because the local repository already contains files.
+Create an empty public GitHub repository named `cosmo-page` under `Yangming911`. Leave README, license, and .gitignore unchecked because the local repository already contains files.
 
 ```bash
 git push -u origin main
@@ -28,7 +28,7 @@ If you downloaded the ZIP instead of using the existing local repository, initia
 git init -b main
 git add .
 git commit -m "Add CoSMO project page"
-git remote add origin git@github.com:Yangming911/CoSMO-project-page.git
+git remote add origin git@github.com:Yangming911/cosmo-page.git
 git push -u origin main
 ```
 
@@ -37,7 +37,7 @@ In the new repository, open **Settings → Pages → Build and deployment → So
 The expected address after a successful deployment is:
 
 ```text
-https://yangming911.github.io/CoSMO-project-page/
+https://yangming911.github.io/cosmo-page/
 ```
 
 The publication workflow follows [GitHub's Pages workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages). It publishes only website files and assets.
