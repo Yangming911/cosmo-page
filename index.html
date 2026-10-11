@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111d1c">
+  <title>CoSMO · Conformal Semantic Mapping for Open-World Safe Robot Navigation</title>
+  <meta name="description" content="CoSMO turns vision-language embeddings into calibrated semantic safety maps for open-world robot navigation. CoRL 2026 · 61.6% fewer semantic collisions on 2,195 MP3D episodes.">
+  <meta property="og:title" content="CoSMO · Open-world navigation. Semantic safety.">
+  <meta property="og:description" content="Conformal Semantic Mapping for Open-World Safe Robot Navigation · CoRL 2026">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yangming911.github.io/CoSMO-project-page/">
+  <meta property="og:image" content="https://yangming911.github.io/CoSMO-project-page/assets/social.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://yangming911.github.io/CoSMO-project-page/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site-config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#overview">Skip to research</a>
+  <header class="header" id="top">
+    <div class="wrap nav-row">
+      <a class="wordmark" href="#top" aria-label="CoSMO home">CoSM<span class="logo-o">O</span><span class="wordmark-dot"></span></a>
+      <nav aria-label="Main navigation">
+        <a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a><a href="#demo">Demo</a>
+      </nav>
+      <a class="nav-code" data-code-link href="https://github.com/Yangming911/CoSMO" target="_blank" rel="noopener noreferrer">Code <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="paper-title">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hero-topline"><span class="eyebrow"><i class="status-dot"></i> CONFERENCE ON ROBOT LEARNING · 2026</span><span class="hero-index mono">PERCEPTION → GUARANTEES → ACTION</span></div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="hero-name" aria-hidden="true">CoSM<span>O</span><sup>↗</sup></div>
+            <h1 id="paper-title">Conformal Semantic Mapping<br>for Open-World Safe<br>Robot Navigation</h1>
+            <p class="hero-description">A robot should understand what to avoid.<br>And know how certain it needs to be.</p>
+            <div class="authors"><span>Shuqi Wang<sup>1,2</sup></span><span>Yiwei Zheng<sup>1</sup></span><span>Pingrui Zhang<sup>3</sup></span><span>Yue Gao<sup>1,2</sup></span><span>Xiang Yin<sup>1,†</sup></span></div>
+            <div class="affiliations"><span><sup>1</sup> Shanghai Jiao Tong University</span><span><sup>2</sup> Shanghai Innovation Institute</span><span><sup>3</sup> Fudan University</span></div>
+            <p class="correspondence">† Corresponding author</p>
+            <div class="hero-actions">
+              <a class="button button-lime" href="#demo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg>Watch demo</a>
+              <a class="button button-outline" data-code-link href="https://github.com/Yangming911/CoSMO" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg>Code</a>
+              <a class="button button-paper" id="paper-link" aria-disabled="true" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6Zm8 0v5h4M9 12h6m-6 4h6"/></svg>Paper <span class="soon">Coming soon</span></a>
+            </div>
+          </div>
+          <div class="map-panel" aria-label="Interactive illustration of semantic navigation">
+            <div class="map-topbar"><span class="mono"><i class="status-dot"></i> SEMANTIC SAFETY MAP</span><span class="map-coordinate mono">LOCAL FRAME / XY</span></div>
+            <div class="map-stage"><canvas id="navigation-map" role="img" aria-label="Illustrative indoor map showing a robot route around category-dependent safety regions"></canvas><div class="map-tag tag-one"><i></i> HUMAN <span>clearance zone</span></div><div class="map-tag tag-two"><i></i> UNSEEN OBJECT <span>dictionary expands</span></div><div class="map-legend mono"><span><i class="legend-route"></i> ROBOT PATH</span><span><i class="legend-hazard"></i> SEMANTIC HAZARD</span></div></div>
+            <div class="map-controls"><div class="segmented" role="group" aria-label="Illustrated navigation method"><button type="button" data-mode="baseline" aria-pressed="false">Geometry only</button><button type="button" data-mode="cosmo" class="active" aria-pressed="true">CoSMO</button></div><span id="map-status" class="mono">SEMANTIC CLEARANCE</span></div>
+            <p class="map-disclaimer">Interactive concept illustration · not an experimental trajectory</p>
+          </div>
+        </div>
+        <div class="hero-bottom"><span class="mono">OPEN WORLD. CALIBRATED UNCERTAINTY. SAFER ACTIONS.</span><a href="#overview" class="scroll-link">Explore the research <span aria-hidden="true">↓</span></a></div>
+      </div>
+    </section>
+
+    <section class="metric-strip" aria-label="Research highlights"><div class="wrap metrics"><div><strong>61.6<span>%</span></strong><p>fewer semantic collisions</p><small>relative to geometry-only OneMap</small></div><div><strong>2,195</strong><p>navigation episodes</p><small>full Matterport3D validation split</small></div><div><strong>9.8<span>%</span></strong><p>semantic collision rate</p><small>CoSMO · open-vocabulary setting</small></div><div><strong>30</strong><p>real-world robot trials</p><small>Unitree Go2 · two indoor scenes</small></div></div></section>
+
+    <section class="section wrap" id="overview">
+      <div class="section-heading"><span class="section-number mono">01 / THE IDEA</span><h2>Safety depends on<br><em>what</em> an object is.</h2></div>
+      <div class="overview-grid"><p class="lead">Geometry tells a robot where an obstacle is. Semantics tells it how much space to leave.</p><div class="body-copy"><p>A person, a bathtub, and a sofa call for different safety clearances. But in an unfamiliar environment, the robot’s hazard vocabulary is incomplete—and raw vision-language predictions can be confidently wrong.</p><p><strong>CoSMO turns visual embeddings into calibrated coverage sets.</strong> It plans against the most conservative safety distance among plausible labels, learns new hazard categories online, and adapts its calibration even when expert feedback arrives late.</p></div></div>
+      <figure class="research-figure motivation-figure"><button class="figure-zoom" type="button" data-image="assets/scenario.webp" data-caption="The motivating example: geometry-only and single-label navigation enter semantic hazard zones, while CoSMO considers calibrated sets and follows a safer path." aria-label="Enlarge motivating navigation figure"><img src="assets/scenario.webp" width="1804" height="596" alt="Paper illustration comparing geometry-only, VLM-only, and CoSMO navigation paths in an indoor scene with known and unseen semantic hazards" loading="lazy"><span class="zoom-mark" aria-hidden="true">↗</span></button><figcaption><span class="mono">WHY SEMANTICS MATTER</span> A single predicted label can miss a hazard. A calibrated set keeps multiple plausible labels in view.</figcaption></figure>
+      <details class="abstract"><summary><span>Read the abstract</span><span class="details-plus" aria-hidden="true">+</span></summary><p>Safe autonomous navigation requires not only geometric obstacle avoidance but also semantic awareness. Different object categories demand different safety clearances, and the set of relevant categories may expand as the robot explores novel environments. Vision-language models (VLMs) offer rich semantic representations for building maps of unknown scenes, yet their confidence scores are poorly calibrated, making raw predictions unreliable for safety-critical planning. Conformal prediction (CP) can provide coverage guarantees, but existing methods assume a fixed label set and stationary data, limiting their use in open-world settings. We propose Conformal Semantic Mapping for Open-World Safe Robot Navigation (CoSMO), a semantic safety mapping framework that transforms VLM embeddings into calibrated coverage sets and safety-aware obstacle dilations over a dynamically expanding hazard vocabulary, even under distribution shift. Experiments on the Matterport3D (MP3D) dataset show that CoSMO reduces semantic collisions by 61.6% relative to a geometry-only baseline, while maintaining formal coverage guarantees even under delayed expert feedback.</p></details>
+    </section>
+
+    <section class="method-section" id="method"><div class="wrap section">
+      <div class="section-heading"><span class="section-number mono">02 / THE METHOD</span><h2>From uncertain perception<br>to safety-aware planning.</h2></div>
+      <div class="method-intro"><p class="lead">A semantic safety layer<br>for vision-based navigation.</p><p>CoSMO connects dense vision-language features, a planner that consumes dilated obstacle maps, and a delayed expert oracle.</p></div>
+      <div class="method-steps"><article><span class="step-icon mono">01 <span>↗</span></span><h3>Embed, don’t normalize.</h3><p>Measure nonconformity in the shared vision-language embedding space. New labels do not invalidate previously collected calibration scores.</p><span class="step-label mono">VOCABULARY-INDEPENDENT SCORES</span></article><article><span class="step-icon mono">02 <span>◎</span></span><h3>Calibrate as you go.</h3><p>Use adaptive conformal inference to track changing observations. Delayed expert feedback updates the threshold and expands the safety dictionary.</p><span class="step-label mono">ONLINE + DELAYED FEEDBACK</span></article><article><span class="step-icon mono">03 <span>⌁</span></span><h3>Plan for plausible hazards.</h3><p>Construct a coverage set for each relevant cell. Dilate obstacles by the largest required clearance among candidate labels before planning.</p><span class="step-label mono">CATEGORY-DEPENDENT CLEARANCE</span></article></div>
+      <figure class="research-figure framework-figure"><button class="figure-zoom" type="button" data-image="assets/framework.webp" data-caption="CoSMO framework: RGB-D embeddings, calibrated coverage sets, category-dependent dilation, and path planning with delayed expert feedback." aria-label="Enlarge CoSMO framework"><img src="assets/framework.webp" width="1716" height="732" alt="Full CoSMO pipeline: RGB-D observations, VLM encoder, embedding map, coverage sets, dilation map, path planner, delayed expert oracle and adaptive calibration" loading="lazy"><span class="zoom-mark" aria-hidden="true">↗</span></button><figcaption><span class="mono">THE COSMO FRAMEWORK</span> A fast perception loop meets a slower expert feedback loop.</figcaption></figure>
+      <div class="theory-note"><span class="theory-symbol" aria-hidden="true">∴</span><div><h3>Coverage with a growing vocabulary and bounded delay.</h3><p>Embedding-space scores remain compatible when new labels are added. Under the paper’s assumptions, delayed adaptive calibration preserves asymptotic coverage, while the safety bound accounts for delay, distribution drift, and temporal dependence.</p></div><span class="theory-formula" aria-label="Risk bound: alpha plus tau times Delta plus two epsilon">α + τΔ + 2ε</span></div>
+    </div></section>
+
+    <section class="section wrap" id="results">
+      <div class="section-heading"><span class="section-number mono">03 / THE EVIDENCE</span><h2>Less collision.<br>More semantic awareness.</h2></div>
+      <div class="results-grid"><div class="result-story"><span class="eyebrow ink-muted">MATTERPORT3D · 2,195 EPISODES</span><div class="result-big">61.6<span>%</span><span class="result-arrow" aria-hidden="true">↘</span></div><h3>relative reduction in<br>semantic collisions</h3><p>Starting with an empty hazard dictionary, open-vocabulary CoSMO reduces semantic collision rate from <strong>25.5% to 9.8%</strong> relative to geometry-only OneMap.</p><div class="bar-chart" aria-label="Semantic collision rate: OneMap 25.5%, GCLIP Argmax 13.1%, CoSMO 9.8%"><div><span>OneMap</span><i style="--bar:100%;--bar-color:#a8aeaa"></i><b>25.5%</b></div><div><span>GCLIP Argmax</span><i style="--bar:51.37%;--bar-color:#77968b"></i><b>13.1%</b></div><div class="cosmo-bar"><span>CoSMO</span><i style="--bar:38.43%;--bar-color:#264f43"></i><b>9.8%</b></div></div></div>
+      <div class="table-panel"><div class="table-heading"><h3>Full benchmark comparison</h3><span class="mono">MP3D / VAL</span></div><div class="table-scroll"><table><caption class="sr-only">Navigation results on all 2,195 MP3D validation episodes</caption><thead><tr><th scope="col">Method</th><th scope="col"><abbr title="Success rate">SR</abbr> ↑</th><th scope="col"><abbr title="Semantic collision rate">SCR</abbr> ↓</th><th scope="col"><abbr title="Success weighted by path length">SPL</abbr> ↑</th></tr></thead><tbody><tr><th scope="row">OneMap <small>geometry only</small></th><td>11.3%</td><td>25.5%</td><td>0.071</td></tr><tr><th scope="row">GCLIP Argmax</th><td>18.4%</td><td>13.1%</td><td>0.103</td></tr><tr><th scope="row">Uniform Dilation</th><td>8.7%</td><td>8.9%</td><td>0.053</td></tr><tr class="highlight-row"><th scope="row">CoSMO <small>open vocabulary</small></th><td>13.8%</td><td>9.8%</td><td>0.081</td></tr><tr><th scope="row">CoSMO <small>known vocabulary</small></th><td>10.4%</td><td>9.4%</td><td>0.059</td></tr><tr><th scope="row">CoSMO <small>Grounding DINO expert</small></th><td>16.5%</td><td>10.5%</td><td>0.097</td></tr></tbody></table></div><p class="table-note">SR: success rate. SCR: semantic collision rate. SPL: success weighted by path length. Clearances introduce a safety–success tradeoff in narrow indoor layouts.</p></div></div>
+      <div class="evidence-grid"><figure class="research-figure"><button class="figure-zoom" type="button" data-image="assets/pareto.webp" data-caption="Safety–success Pareto frontier on the 330-episode ablation split." aria-label="Enlarge safety and success Pareto plot"><img src="assets/pareto.webp" alt="Paper Pareto plot comparing safety and success for CoSMO, offline conformal prediction, and uniform dilation" loading="lazy"><span class="zoom-mark" aria-hidden="true">↗</span></button><figcaption><h3>A tunable safety–success tradeoff.</h3><p>On 330 ablation episodes, CoSMO dominates offline CP across the evaluated coverage targets.</p></figcaption></figure><figure class="research-figure"><button class="figure-zoom" type="button" data-image="assets/delay.webp" data-caption="Delayed expert feedback: thresholds converge while larger delays increase transient coverage oscillations." aria-label="Enlarge expert delay ablation plot"><img src="assets/delay.webp" alt="Paper delay ablation comparing threshold and coverage trajectories with different bounded expert feedback delays" loading="lazy"><span class="zoom-mark" aria-hidden="true">↗</span></button><figcaption><h3>Feedback can arrive late.</h3><p>Across tested delays of 0–100 steps, SCR remains within 10.0–10.9% on the 330-episode ablation split.</p></figcaption></figure></div>
+    </section>
+
+    <section class="demo-section" id="demo"><div class="wrap section">
+      <div class="section-heading"><span class="section-number mono">04 / IN THE REAL WORLD</span><h2>Off the screen.<br>Into an unfamiliar room.</h2></div>
+      <div class="demo-topline"><p>A Unitree Go2 searches for a chair while learning to avoid household objects and free-form semantic concepts.</p><a data-video-link href="https://www.youtube.com/watch?v=LvttKb8bCho" target="_blank" rel="noopener noreferrer">Watch on YouTube <span aria-hidden="true">↗</span></a></div>
+      <div class="video-shell" id="video-shell"><button class="video-poster" type="button" id="play-video" aria-label="Play CoSMO demonstration video"><img src="assets/video-poster.webp" alt="Unitree Go2 navigation experiment from the paper" loading="lazy"><span class="video-shade"></span><span class="video-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg></span><span class="video-caption"><span class="mono">COSMO / REAL-WORLD DEPLOYMENT</span><strong>See semantic safety in motion.</strong><span>Play the research demo <span aria-hidden="true">↗</span></span></span></button></div>
+      <div class="real-stats"><div><strong>30</strong><span>trials across two scenes</span></div><div><strong>90.73<span>%</span></strong><span>empirical coverage · 90% target</span></div><div><strong>16.67<span>%</span></strong><span>semantic collision rate</span></div><div><strong>46.67<span>%</span></strong><span>navigation success rate</span></div></div>
+      <figure class="research-figure real-figure"><button class="figure-zoom" type="button" data-image="assets/real-world.webp" data-caption="Real-world navigation in an initially unknown 3.5 m × 10 m indoor environment. GCLIP provides perception; Grounding DINO supplies delayed expert feedback." aria-label="Enlarge real-world experiment figure"><img src="assets/real-world.webp" alt="Paper figure showing Unitree Go2 navigation, semantic maps, and trajectories in a real indoor experiment" loading="lazy"><span class="zoom-mark" aria-hidden="true">↗</span></button><figcaption><span class="mono">PHYSICAL DEPLOYMENT</span> GCLIP perception + Grounding DINO expert · measured feedback delay: 128.1–447.6 ms.</figcaption></figure>
+    </div></section>
+
+    <section class="section wrap citation-section" id="citation"><div class="section-heading"><span class="section-number mono">05 / BUILD ON THIS WORK</span><h2>Explore. Reproduce. Cite.</h2></div><div class="citation-grid"><div><p class="lead">Bring semantic safety<br>into the navigation loop.</p><p>The code includes the core simulation pipeline, expert interfaces, adaptive calibration, and evaluation configurations.</p><a class="button button-dark" data-code-link href="https://github.com/Yangming911/CoSMO" target="_blank" rel="noopener noreferrer">Explore the code <span aria-hidden="true">↗</span></a><p class="paper-note" id="paper-note">The paper link will be added when the preprint is available.</p></div><div class="citation-box"><div class="citation-top"><span class="mono">BIBTEX</span><button type="button" id="copy-citation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9h11v12H9ZM5 15H3V3h11v2"/></svg><span>Copy citation</span></button></div><pre><code id="bibtex">@inproceedings{wang2026cosmo,
+  title     = {CoSMO: Conformal Semantic Mapping
+               for Open-World Safe Robot Navigation},
+  author    = {Wang, Shuqi and Zheng, Yiwei and
+               Zhang, Pingrui and Gao, Yue and Yin, Xiang},
+  booktitle = {Conference on Robot Learning},
+  year      = {2026}
+}</code></pre><p class="citation-note">Preliminary citation · publication metadata will be updated.</p></div></div></section>
+  </main>
+  <footer><div class="wrap footer-row"><a class="wordmark" href="#top">CoSM<span class="logo-o">O</span><span class="wordmark-dot"></span></a><span>Conformal Semantic Mapping · CoRL 2026</span><a href="#top">Back to top <span aria-hidden="true">↑</span></a></div></footer>
+  <dialog id="figure-dialog" aria-labelledby="figure-caption"><button type="button" id="close-figure" aria-label="Close enlarged figure">×</button><img id="figure-image" alt=""><p id="figure-caption"></p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
