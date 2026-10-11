@@ -22,6 +22,16 @@ Create an empty public GitHub repository named `CoSMO-project-page` under `Yangm
 git push -u origin main
 ```
 
+If you downloaded the ZIP instead of using the existing local repository, initialize it before pushing:
+
+```bash
+git init -b main
+git add .
+git commit -m "Add CoSMO project page"
+git remote add origin git@github.com:Yangming911/CoSMO-project-page.git
+git push -u origin main
+```
+
 In the new repository, open **Settings → Pages → Build and deployment → Source**, and choose **GitHub Actions**. If the initial workflow ran before Pages was enabled, open **Actions → Deploy CoSMO project page → Run workflow**.
 
 The expected address after a successful deployment is:

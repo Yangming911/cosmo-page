@@ -77,6 +77,7 @@
       const image = document.getElementById("figure-image");
       image.src = button.dataset.image;
       image.alt = button.querySelector("img").alt;
+      document.getElementById("figure-original").href = button.dataset.image;
       document.getElementById("figure-caption").textContent = button.dataset.caption;
       dialog.showModal();
       document.body.style.overflow = "hidden";
