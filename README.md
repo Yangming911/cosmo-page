@@ -60,7 +60,7 @@ Until `paperUrl` is set, the paper button is visibly unavailable and marked **Co
 
 ## Content and assets
 
-Authors, affiliations, method descriptions, and experiment results follow `../paper/camera_ready.tex`. Figures are optimized copies of the supplied paper figures. The interactive hero map is explicitly labeled as a concept illustration rather than an experimental trajectory.
+Authors, affiliations, method descriptions, and experiment results follow `../paper/camera_ready.tex`. Figures are optimized copies of the supplied paper figures. The page uses a white academic layout with a centered paper title, authors, abstract, method, results, and citation. Pastel accents follow the blue, green, apricot, and lavender colors in the paper figures.
 
 The site includes the full six-method benchmark table so the safety–success tradeoff remains visible. MP3D results, the 330-episode ablation split, and the 30 real-world trials are distinguished in the page.
 
