@@ -24,14 +24,16 @@
   document.querySelectorAll("[data-video-link]").forEach(link => {
     link.href = `https://www.youtube.com/watch?v=${videoId}`;
   });
-  document.getElementById("play-video").addEventListener("click", () => {
-    const iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-    iframe.title = "CoSMO: Open-World Safe Robot Navigation — research demonstration";
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-    iframe.allowFullscreen = true;
-    iframe.referrerPolicy = "strict-origin-when-cross-origin";
-    document.getElementById("video-shell").replaceChildren(iframe);
+  document.querySelectorAll("[data-video-player] .video-poster").forEach(button => {
+    button.addEventListener("click", () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.title = "CoSMO: Open-World Safe Robot Navigation — research demonstration";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      button.closest("[data-video-player]").replaceChildren(iframe);
+    });
   });
 
   let toastTimer;

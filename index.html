@@ -14,9 +14,9 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://yangming911.github.io/cosmo-page/">
   <link rel="icon" href="assets/favicon.svg?v=20261012-academic" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261012-academic">
+  <link rel="stylesheet" href="styles.css?v=20261012-video-preview">
   <script src="site-config.js" defer></script>
-  <script src="script.js?v=20261012-academic" defer></script>
+  <script src="script.js?v=20261012-video-preview" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#abstract">Skip to abstract</a>
@@ -30,9 +30,19 @@
       <div class="paper-links">
         <a class="resource-link paper-link" id="paper-link" aria-disabled="true" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6Zm8 0v5h4M9 12h6m-6 4h6"/></svg>Paper <span class="soon">Coming soon</span></a>
         <a class="resource-link code-link" data-code-link href="https://github.com/Yangming911/CoSMO" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg>Code</a>
-        <a class="resource-link video-link" href="#demo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9 5 3-5 3Z"/></svg>Video</a>
+        <a class="resource-link video-link" data-video-link href="https://www.youtube.com/watch?v=LvttKb8bCho" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="m10 9 5 3-5 3Z"/></svg>Video</a>
       </div>
     </header>
+
+    <section class="intro-video" aria-label="CoSMO video preview">
+      <div class="video-shell" id="intro-video-shell" data-video-player>
+        <button class="video-poster" type="button" id="play-intro-video" aria-label="Play CoSMO research demonstration">
+          <img src="assets/youtube-preview.webp" alt="Preview of the CoSMO research demonstration on YouTube" loading="eager" fetchpriority="high">
+          <span class="video-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg></span>
+          <span class="video-label">Watch the demonstration</span>
+        </button>
+      </div>
+    </section>
 
     <section class="teaser" aria-label="CoSMO overview illustration">
       <figure class="research-figure">
@@ -47,7 +57,7 @@
     <section class="paper-section" id="abstract">
       <h2>Abstract</h2>
       <p>Safe autonomous navigation requires not only geometric obstacle avoidance but also semantic awareness. Different object categories demand different safety clearances, and the set of relevant categories may expand as the robot explores novel environments. Vision-language models (VLMs) offer rich semantic representations for building maps of unknown scenes, yet their confidence scores are poorly calibrated, making raw predictions unreliable for safety-critical planning. Conformal prediction (CP) can provide coverage guarantees, but existing methods assume a fixed label set and stationary data, limiting their use in open-world settings. We propose Conformal Semantic Mapping for Open-World Safe Robot Navigation (CoSMO), a semantic safety mapping framework that transforms VLM embeddings into calibrated coverage sets and safety-aware obstacle dilations over a dynamically expanding hazard vocabulary, even under distribution shift. Experiments on the Matterport3D (MP3D) dataset show that CoSMO reduces semantic collisions by 61.6% relative to a geometry-only baseline, while maintaining formal coverage guarantees even under delayed expert feedback. Real-world experiments on a Unitree Go2 robot further demonstrate generalization beyond simulation, achieving long-run empirical coverage of 90.73% against the 90% target under delayed detector feedback.</p>
-      <p class="tldr"><strong>TL;DR:</strong> CoSMO converts vision-language embeddings into calibrated semantic safety maps for robot navigation with formal safety guarantees. New hazard categories can be added online without additional offline training or calibration.</p>
+      <p class="tldr"><strong>TL;DR:</strong> CoSMO converts vision-language embeddings into calibrated semantic safety maps for robot navigation with formal safety guarantees. It adapts online to distribution shifts, including the addition of new hazard categories, without additional offline training or calibration.</p>
     </section>
 
     <section class="paper-section" id="method">
@@ -94,7 +104,7 @@
     <section class="paper-section" id="demo">
       <h2>Real-World Experiments</h2>
       <p>We deploy CoSMO on a Unitree Go2 robot in two indoor scenes. The robot searches for a chair while avoiding household objects and free-form semantic concepts, using GCLIP for perception and Grounding DINO as the delayed expert oracle.</p>
-      <div class="video-shell" id="video-shell">
+      <div class="video-shell" id="video-shell" data-video-player>
         <button class="video-poster" type="button" id="play-video" aria-label="Play CoSMO research demonstration">
           <img src="assets/video-poster.webp" alt="Unitree Go2 navigating an indoor scene" loading="lazy">
           <span class="video-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg></span>
