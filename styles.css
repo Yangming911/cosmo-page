@@ -63,7 +63,7 @@ sup { font-size: .68em; vertical-align: super; line-height: 0; margin-left: 2px;
 .video-link:hover { background: #f9e6d1; }
 .soon { font-size: 9px; font-weight: 400; color: #92859f; }
 .teaser { margin-top: 0; }
-.intro-video { max-width: 840px; margin: 0 auto 34px; }
+.intro-video { width: 100%; margin: 34px auto 0; }
 .intro-video .video-shell { margin-top: 0; }
 .paper-section { max-width: 840px; margin: 0 auto; padding-top: 51px; }
 h2 { text-align: center; font-size: 29px; line-height: 1.4; font-weight: 650; margin: 0 0 22px; letter-spacing: -.025em; color: #303640; }
