@@ -1,7 +1,6 @@
-// Add the arXiv URL here when the preprint is available.
-// Leave paperUrl empty to keep the paper button in its "Coming soon" state.
+// Public links for the CoSMO project page.
 window.COSMO_CONFIG = Object.freeze({
-  paperUrl: "",
+  paperUrl: "https://arxiv.org/abs/2610.18321",
   codeUrl: "https://github.com/Yangming911/CoSMO",
   videoId: "LvttKb8bCho"
 });
